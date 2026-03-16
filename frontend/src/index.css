@@ -1,0 +1,163 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0f0f0f;
+  color: #f0f0f0;
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: #888;
+  font-size: 1rem;
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #333;
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  min-height: 220px;
+}
+
+.dropzone:hover,
+.dropzone.dragging {
+  border-color: #555;
+  background: #1a1a1a;
+}
+
+.prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: #888;
+}
+
+.prompt .icon { font-size: 2.5rem; }
+.prompt span:last-child { font-size: 1rem; }
+
+.spinner {
+  color: #888;
+  font-size: 1rem;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.error {
+  color: #ff6b6b;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.error span { color: #888; font-size: 0.85rem; }
+
+/* Results */
+.results { display: flex; flex-direction: column; gap: 1.5rem; }
+
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .images { grid-template-columns: 1fr; }
+}
+
+.image-card {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  position: relative;
+}
+
+.image-card img {
+  width: 100%;
+  display: block;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.image-card.checker img {
+  background-image:
+    linear-gradient(45deg, #333 25%, transparent 25%),
+    linear-gradient(-45deg, #333 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #333 75%),
+    linear-gradient(-45deg, transparent 75%, #333 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+.label {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.6);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #ccc;
+  z-index: 1;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-download {
+  background: #f0f0f0;
+  color: #0f0f0f;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-download:hover { background: #ddd; }
+
+.btn-reset {
+  background: transparent;
+  color: #888;
+  border: 1px solid #333;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-reset:hover { border-color: #555; color: #ccc; }
